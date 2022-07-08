@@ -10,17 +10,44 @@ export default class Camera
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.canvas = this.experience.canvas
+        this.debug = this.experience.debug
+        //this.world = this.experience.world
         // console.log(this);
 
+        if(this.experience.debug.active){
+            this.debugFolder = this.debug.ui.addFolder('Camera')
+        }
+
         this.setInstance()
-        this.setOrbitControls()
+        //this.setOrbitControls()
     }
 
     setInstance()
     {
         this.instance = new THREE.PerspectiveCamera(35, this.sizes.width / this.sizes.height, 0.1, 100)
-        this.instance.position.set(6, 4, 8)
+        this.instance.position.set(0, 0, 5)
         this.scene.add(this.instance)
+
+        if(this.experience.debug.active)
+        {
+            this.debugFolder
+                .add(this.instance.position, 'x')
+                .min(-10)
+                .max(10)
+                .step(0.1)
+
+            this.debugFolder
+                .add(this.instance.position, 'y')
+                .min(-10)
+                .max(10)
+                .step(0.1)
+
+            this.debugFolder
+                .add(this.instance.position, 'z')
+                .min(-10)
+                .max(10)
+                .step(0.1)
+        }
     }
 
     setOrbitControls()
@@ -37,6 +64,10 @@ export default class Camera
 
     update()
     {
-        this.controls.update()
+        //this.controls.update()
+
+        // if(this.world.bag){
+        //     this.instance.lookAt(this.world.bag.position)
+        // }
     }
 }

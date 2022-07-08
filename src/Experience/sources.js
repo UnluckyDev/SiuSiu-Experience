@@ -23,8 +23,13 @@ export default [
         path: 'textures/dirt/normal.jpg'
     },
     {
-        name: 'foxModel',
+        name: 'testModel',
         type: 'gltfModel',
-        path: 'models/Fox/glTF/Fox.gltf'
+        path: 'models/Suzanne/Suzanne.gltf'
     }
+    // {
+    //     name: 'bagModel',
+    //     type: 'gltfModel',
+    //     path: 'models/Bag/Borsa.gltf'
+    // }
 ]

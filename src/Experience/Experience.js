@@ -7,8 +7,17 @@ import World from "./World/World.js";
 import Resources from "./Utils/Resources.js";
 import sources from "./sources.js";
 import Debug from "./Utils/Debug.js";
+import ScrollHelper from "./World/ScrollHelper.js";
 
 let instance = null;
+
+/**
+ * TODO
+ * 
+ * - Decidere il numero di sezioni da inserire in HTML
+ * - Inserire camera dentro un gruppo per effetto parallasse (se dovesse servire, magari perchè inseriamo delle particelle)
+ * - Decidere come gestire interazione onScroll (guarda 21-scroll-based-animation - da riga 150 circa) (quella interazione va bene se le sezioni sono da 100vh però easy facciamo così)
+ */
 
 export default class Experience {
   constructor(canvas) {
@@ -33,6 +42,7 @@ export default class Experience {
     this.camera = new Camera();
     this.renderer = new Renderer();
     this.world = new World();
+    this.scrollHelper = new ScrollHelper();
 
     //Sizes resize event
     this.sizes.on("resize", () => {

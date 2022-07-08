@@ -7,7 +7,8 @@ export default class Debug
     constructor()
     {
         this.active = window.location.hash === '#debug'
-        
+        // this.cameraHelper = new THREE.CameraHelper(this.experience.camera)
+
         if(this.active)
         {
             this.ui = new dat.GUI()
